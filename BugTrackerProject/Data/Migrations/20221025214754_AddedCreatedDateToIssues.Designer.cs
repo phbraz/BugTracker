@@ -4,6 +4,7 @@ using BugTrackerProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugTrackerProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221025214754_AddedCreatedDateToIssues")]
+    partial class AddedCreatedDateToIssues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,10 +49,6 @@ namespace BugTrackerProject.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("TicketNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,23 +61,21 @@ namespace BugTrackerProject.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 10, 26, 1, 46, 4, 112, DateTimeKind.Utc).AddTicks(5730),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "I am trying to access my account on someuser@test.com but it says locked, please help",
                             IsActive = true,
                             Reporter = "someuser@test.com",
                             Status = 0,
-                            TicketNumber = "BT-01",
                             Title = "Cannot access email"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 10, 26, 1, 46, 4, 112, DateTimeKind.Utc).AddTicks(5731),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "I am trying to access twitter.com but it doesn't display anything",
                             IsActive = true,
                             Reporter = "someuser@test.com",
                             Status = 0,
-                            TicketNumber = "BT-02",
                             Title = "Cannot access Site"
                         });
                 });

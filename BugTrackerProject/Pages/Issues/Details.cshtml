@@ -1,0 +1,60 @@
+﻿@page
+@model BugTrackerProject.Pages.Issues.Details
+
+@{
+    var issue = @Model.Issue.FirstOrDefault();
+}
+
+<div class="container align-content-center">
+
+    <div class="row mb-2">
+        <label class="fw-bold mb-2" for="ticketNumber">Ticket Number</label>
+        <div id="ticketNumber" class="col">@issue.TicketNumber</div>
+    </div>
+    
+    <div class="row mb-2">
+        <label class="fw-bold mb-2" for="createdDate">Created Date</label>
+        <div id="createdDate" class="col">@issue.CreatedDate.ToShortDateString()</div>
+    </div>
+    
+    <div class="row mb-2">
+         <label class="fw-bold mb-2" for="reporter">Reporter</label>
+         <div id="reporter" class="col">@issue.Reporter</div>
+     </div>
+
+     <div class="row mb-2">
+         <label class="fw-bold mb-2" for="title">Title</label>
+         <div id="title" class="col">@issue.Title</div>
+     </div>
+
+     <div class="row mb-2">
+         <label class="fw-bold mb-2" for="description">Description</label>
+         <div id="description" class="col">@issue.Description</div>
+     </div>
+
+    <div class="row mb-2">
+        <label class="fw-bold mb-2" for="status">Status</label>
+        <div id="status" class="col">@issue.Status</div>
+    </div>
+    
+
+    <div class="mt-4">
+        <button id="editButton" type="button" class="btn btn-warning mb-4">Edit Ticket</button>
+        <form method="post">
+            
+            <button id="deleteButton" type="submit" class="btn  btn-danger" asp-page-handler="Delete" asp-route-id=@issue.Id>Delete issue</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $('#editButton').click(() => {
+            alert('WIP, Sorry :(');
+        })
+        $('#deleteButton').click(() => {
+            $(this).prop('disabled', true)
+        })
+    </script>
+
+}

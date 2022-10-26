@@ -4,6 +4,7 @@ using BugTrackerProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugTrackerProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221025224224_AddTicketNumberToIssues")]
+    partial class AddTicketNumberToIssues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +65,7 @@ namespace BugTrackerProject.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 10, 26, 1, 46, 4, 112, DateTimeKind.Utc).AddTicks(5730),
+                            CreatedDate = new DateTime(2022, 10, 25, 22, 42, 23, 907, DateTimeKind.Utc).AddTicks(70),
                             Description = "I am trying to access my account on someuser@test.com but it says locked, please help",
                             IsActive = true,
                             Reporter = "someuser@test.com",
@@ -74,7 +76,7 @@ namespace BugTrackerProject.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 10, 26, 1, 46, 4, 112, DateTimeKind.Utc).AddTicks(5731),
+                            CreatedDate = new DateTime(2022, 10, 25, 22, 42, 23, 907, DateTimeKind.Utc).AddTicks(71),
                             Description = "I am trying to access twitter.com but it doesn't display anything",
                             IsActive = true,
                             Reporter = "someuser@test.com",

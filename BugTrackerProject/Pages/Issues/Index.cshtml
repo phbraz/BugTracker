@@ -6,6 +6,26 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">just testing redirecting after login</h1>
-    <p class="mt-4">Some bugs will come here!!!</p>
+    <h1 class="display-6">Issues</h1>
+    
+    <div class="container mt-4">
+        
+        <div class="row">
+            <div class="col">Title</div>
+            <div class="col">Reporter</div>
+            <div class="col">Created Date</div>
+            <div class="col hidden"></div>
+        </div>
+        @foreach (var m in Model.GetIssues())
+        {
+            <div class="row mt-4">
+                <div class="col">@m.Title</div>
+                <div class="col">@m.Reporter</div>
+                <div class="col">@m.CreatedDate.ToShortDateString()</div>
+                <div class="col"><a asp-page="/Issues/Details" asp-route-id=@m.Id>view/edit</a></div>
+            </div>
+            
+        }
+    </div>
+    
 </div>
